@@ -7,13 +7,13 @@ import { useAxiosGet } from '../Hooks/HttpRequests'
 //componet init
 function BodyContainer() {
 
-    //get httpRequest response
+    //get httpRequest responsey
     let dogData = useAxiosGet('http://bdoguinhoapi.herokuapp.com/doguinho/')
     //bugfixer NEED to build    
-    const Data = require('../appInfo.json')
+    //const Data = require('../../public/distritos.json')
 
     // get data from response
-    let dogArray = Data
+    let dogArray = dogData.data
     console.log('ioiioioiooi')
     
     
