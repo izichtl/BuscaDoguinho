@@ -9,10 +9,12 @@ function BodyContainer() {
 
     //get httpRequest response
     let dogData = useAxiosGet('http://bdoguinhoapi.herokuapp.com/doguinho/')
+    //bugfixer NEED to build    
+    const Data = require('../appInfo.json')
 
     // get data from response
-    let dogArray = dogData.data
-    
+    let dogArray = Data
+    console.log('ioiioioiooi')
     
     
     return (

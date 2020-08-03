@@ -15,8 +15,7 @@ import BodyContainer from './views/BodyContainer'
 import About from './components/About'
 
 function App() {
-  let url = 'http://bdoguinhoapi.herokuapp.com/doguinho/'
-  console.log(axios.get(url))
+  
   return (
 
     <div >
