@@ -8,7 +8,7 @@ import { useAxiosGet } from '../Hooks/HttpRequests'
 function BodyContainer() {
 
     //get httpRequest response
-    let dogData = useAxiosGet('http://localhost:8080/doguinho/')
+    let dogData = useAxiosGet('http://bdoguinhoapi.herokuapp.com/doguinho/')
 
     // get data from response
     let dogArray = dogData.data

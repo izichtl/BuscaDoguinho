@@ -5,7 +5,8 @@
     "stateZero": {
       "title01": "Perfis de doguinhos para salvar o seu dia",
       "title02": "Doguinhos Api",
-      "link01": "http:/doguinho/"
+      "link01": "/doguinho/",
+      "link02": "http://bdoguinhoapi.herokuapp.com/doguinho/"
             },
     "stateOne": {
       "title01": "Perfis de doguinhos para salvar o seu dia",

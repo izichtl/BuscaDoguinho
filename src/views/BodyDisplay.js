@@ -43,7 +43,7 @@ function BodyDisplay(props) {
               {appInfo.stateZero.title02}
             </h2>
             <div className='responseApiDiv'>
-              <a target="_blank" rel="noopener noreferrer" href={appInfo.stateZero.link01}>{appInfo.stateZero.link01}</a>
+              <a target="_blank" rel="noopener noreferrer" href={appInfo.stateZero.link02}>{appInfo.stateZero.link01}</a>
             </div>
             <p >Retorna um Json / Collection de itens composto por:</p>
             <div>
@@ -58,7 +58,7 @@ function BodyDisplay(props) {
             </div>
             <p >Busca pelo id de 0 até 999</p>
             <div className='responseApiDiv'>
-              <a target="_blank" rel="noopener noreferrer" href={appInfo.stateZero.link01 + rIndex} >
+              <a target="_blank" rel="noopener noreferrer" href={appInfo.stateZero.link02 + rIndex} >
                 {appInfo.stateZero.link01 + '/id'}
               </a>
             </div>

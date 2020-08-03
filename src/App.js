@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Header from './components/Header'
 import Footer from './components/Footer'
+import axios from 'axios'
 // import Content from './components/Content' //atualizar module
 
 
@@ -14,6 +15,8 @@ import BodyContainer from './views/BodyContainer'
 import About from './components/About'
 
 function App() {
+  let url = 'http://bdoguinhoapi.herokuapp.com/doguinho/'
+  console.log(axios.get(url))
   return (
 
     <div >
