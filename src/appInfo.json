@@ -1,0 +1,20 @@
+{
+    "name": "componentesweb",
+    "version": "0.1.0",
+    "private": true,
+    "stateZero": {
+      "title01": "Perfis de doguinhos para salvar o seu dia",
+      "title02": "Doguinhos Api",
+      "link01": "http:/doguinho/"
+            },
+    "stateOne": {
+      "title01": "Perfis de doguinhos para salvar o seu dia",
+      "title02": "Perfis de doguinhos para salvar o seu dia"
+      },
+    "about": {
+      "aboutBody": "Esse projeto usa imagens de cacharros coletadas na ",
+      "aboutBody01": ", junto com informações sobre localidades do Rio de Janeiro de ",
+      "aboutBody02": " tratas e regorganizadas, para formar uma nova API que fornece perfies completos de cachorros."
+      
+    }
+}
