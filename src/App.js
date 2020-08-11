@@ -4,10 +4,10 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+
+
 import Header from './components/Header'
 import Footer from './components/Footer'
-import axios from 'axios'
-// import Content from './components/Content' //atualizar module
 
 
 //import view's
@@ -19,7 +19,7 @@ function App() {
   return (
 
     <div >
-      <Router >
+      <Router exact path='/'>
         
         <div className='appView'>
         <Header/>
