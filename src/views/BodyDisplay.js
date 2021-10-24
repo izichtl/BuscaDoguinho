@@ -1,26 +1,33 @@
-import React, { useState } from 'react'
-import Button from 'muicss/lib/react/button'
-
-
+import React, { useEffect, useState } from 'react';
+import Button from 'muicss/lib/react/button';
+import axios from 'axios';
+import { fetchJSON } from '../Hooks/LocalRequest';
+import{
+  slice01, slice02, slice03, id, idade,
+} from '../localStorage/messageBody.json';
 
 
 //get default info to app
 const appInfo = require('../appInfo.json')
 
-//get message info Body
-const mBody = require('../messageBody.json')
-
 //Component Init
 function BodyDisplay(props) {
-
-  //Set default state to app
+  const [dogImage, setDogImage] = useState({})
+  const [dogData, setDogData] = useState([])
   const [info, setInfo] = useState({
     display: 0,
   })
+  useEffect( ()=> {
+    axios.get('https://dog.ceo/api/breeds/image/random').then((response) => {
+      setDogImage(response)
+  })
+    fetchJSON(Math.floor((Math.random() * 999) + 1)).then((response) => {
+      setDogData(response)
+    })
+}, [info.display])
 
   //Init content and generate random index
   let content = null;
-  let rIndex = Math.floor((Math.random() * 1000) + 1)
 
   //refresh data
   let rDog = Math.floor((Math.random() * 10) + 3)
@@ -35,7 +42,7 @@ function BodyDisplay(props) {
               className='responseButton'
               variant="raised"
               onClick={e => setInfo({ display: 1 })}
-            >❤ Buscar Doguinho ❤
+            >❤ Busca Doguinho ❤
             </Button>
           
           <div className='responseApi'>
@@ -47,6 +54,8 @@ function BodyDisplay(props) {
             </div>
             <p >Retorna um Json / Collection de itens composto por:</p>
             <div>
+              {/* {dogData.data} */}
+              
               <ul >
                 <li>Name:</li>
                 <li>Foto:</li>
@@ -58,9 +67,7 @@ function BodyDisplay(props) {
             </div>
             <p >Busca pelo id de 0 até 999</p>
             <div className='responseApiDiv'>
-              <a target="_blank" rel="noopener noreferrer" href={appInfo.stateZero.link02 + rIndex} >
-                {appInfo.stateZero.link01 + '/id'}
-              </a>
+        
             </div>
           </div>
 
@@ -76,17 +83,17 @@ function BodyDisplay(props) {
           <div>
             <div className='response1'>
             <div className='imgContainer'>
-              <img className='img' src={props.dogArray[rIndex].imagelink} alt="Um Doguinho Fofo" />
+              <img className='img' src={dogData.imagelink} alt="Um Doguinho Fofo" />
             </div>
             <div className='infoContainer'>
-              <h1>{props.dogArray[rIndex].name}</h1>
-              <p>{mBody.id} <span>{props.dogArray[rIndex].identidade}</span></p>
-              <p>{mBody.idade}<span>{props.dogArray[rIndex].idade}</span></p>
+              <h1>Nome</h1>
+              <p>{id}<span>{dogData.identidade}</span></p>
+              <p>{idade}<span>{dogData.idade}</span></p>
               <p>
-                {mBody.slice01}
-                <span>{props.dogArray[rIndex].cidade}</span>
-                {mBody.slice02}
-                {mBody.slice03}
+                {slice01}
+                <span>{dogData.cidade}</span>
+                {slice02}
+                {slice03}
               </p>
               <div className='buttonContainer' >
                     <Button
