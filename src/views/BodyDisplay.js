@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'muicss/lib/react/button';
+import profile from '../img/profile.png'
 import axios from 'axios';
 import{
   slice01, slice02, slice03, id, idade,
@@ -11,6 +12,7 @@ const appInfo = require('../appInfo.json')
 
 //Component Init
 function BodyDisplay(props) {
+  const [img, setImg] = useState(profile)
   const [gatilho, setGatilho] = useState(0)
   const [dogData, setDogData] = useState([])
   const [info, setInfo] = useState({
@@ -18,11 +20,13 @@ function BodyDisplay(props) {
   })
 
   useEffect( () => {
-    const id = (Math.random() * 990).toFixed(0);
-    console.log(id)
-    axios.get(`https://busca-doguinho-api.vercel.app/doguinho/${id}`).then((response) => {
-      setDogData(response.data)
-  })
+    if (gatilho !== 0) {
+      const id = (Math.random() * 990).toFixed(0);
+      axios.get(`https://busca-doguinho-api.vercel.app/doguinho/${id}`).then((response) => {
+        setImg(response.data.imagelink)
+        setDogData(response.data)
+      })
+    }
   }, [gatilho]);
 
   //Init content and generate random index
@@ -69,7 +73,7 @@ function BodyDisplay(props) {
             </div>
             <p >Busca pelo id de 0 até 999</p>
             <div className='responseApiDiv'>
-        
+              <a target="_blank" rel="noopener noreferrer" href={appInfo.stateZero.link04}>{appInfo.stateZero.link03}</a>
             </div>
           </div>
 
@@ -85,7 +89,7 @@ function BodyDisplay(props) {
           <div>
             <div className='response1'>
             <div className='imgContainer'>
-              <img className='img' src={dogData.imagelink} alt="Um Doguinho Fofo" />
+              <img className='img' src={img} alt="Um Doguinho Fofo" />
             </div>
             <div className='infoContainer'>
               <h1>{dogData.name}</h1>

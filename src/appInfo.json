@@ -5,8 +5,10 @@
     "stateZero": {
       "title01": "Perfis de doguinhos para salvar o seu dia",
       "title02": "Doguinhos Api",
-      "link01": "/doguinho/",
-      "link02": "http://bdoguinhoapi.herokuapp.com/doguinho/"
+      "link01": "/doguinhos/",
+      "link02": "https://busca-doguinho-api.vercel.app/doguinho/",
+      "link03": "/doguinho/:id",
+      "link04": "https://busca-doguinho-api.vercel.app/doguinho/10"
             },
     "stateOne": {
       "title01": "Perfis de doguinhos para salvar o seu dia",

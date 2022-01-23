@@ -22,6 +22,14 @@ body {
   100% {background-color: #d52e3f;}
 } */
 
+a:link {
+  color: #fcedd8;
+  text-decoration: none;
+}
+a:visited {
+  color: #fcedd8;
+  text-decoration: none;
+}
 .appView{
   background-color: none;
   width: 70%;
