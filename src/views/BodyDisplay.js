@@ -13,24 +13,26 @@ const appInfo = require('../appInfo.json')
 //Component Init
 function BodyDisplay(props) {
   const [dogImage, setDogImage] = useState({})
+  const [gatilho, setGatilho] = useState(0)
   const [dogData, setDogData] = useState([])
   const [info, setInfo] = useState({
     display: 0,
   })
-  useEffect( ()=> {
-    axios.get('https://dog.ceo/api/breeds/image/random').then((response) => {
-      setDogImage(response)
+
+  useEffect( () => {
+    const id = (Math.random() * 990).toFixed(0);
+    console.log(id)
+    axios.get(`https://busca-doguinho-api.vercel.app/doguinho/${id}`).then((response) => {
+      setDogData(response.data)
   })
-    fetchJSON(Math.floor((Math.random() * 999) + 1)).then((response) => {
-      setDogData(response)
-    })
-}, [info.display])
+  }, [gatilho]);
 
   //Init content and generate random index
   let content = null;
-
-  //refresh data
-  let rDog = Math.floor((Math.random() * 10) + 3)
+  const clickHandler = () => {
+    setGatilho(Math.random(10))
+    setInfo({ display: 1 })
+  }
 
   //Star state of bodyContent
   if (info.display === 0) {
@@ -41,7 +43,9 @@ function BodyDisplay(props) {
             <Button
               className='responseButton'
               variant="raised"
-              onClick={e => setInfo({ display: 1 })}
+              onClick={ () => {
+                clickHandler()
+              }}
             >❤ Busca Doguinho ❤
             </Button>
           
@@ -86,7 +90,7 @@ function BodyDisplay(props) {
               <img className='img' src={dogData.imagelink} alt="Um Doguinho Fofo" />
             </div>
             <div className='infoContainer'>
-              <h1>Nome</h1>
+              <h1>{dogData.name}</h1>
               <p>{id}<span>{dogData.identidade}</span></p>
               <p>{idade}<span>{dogData.idade}</span></p>
               <p>
@@ -100,13 +104,15 @@ function BodyDisplay(props) {
                     
                     className='responseButton' 
                     variant="raised"
-                    size='small' onClick={e => setInfo({ display: rDog })}
-                    >❤ Doguinho ❤
+                    size='small' onClick={ () => {
+                      clickHandler()
+                    }}
+                    >❤ Novo Doguinho ❤
                     </Button>
 
                     <Button
                     className='responseButton'
-                    variant="raised"
+                    // variant="raised"
                     size='small' onClick={e => setInfo({ display: 0 })}
                     >Voltar
                     </Button>
