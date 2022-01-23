@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'muicss/lib/react/button';
 import axios from 'axios';
-import { fetchJSON } from '../Hooks/LocalRequest';
 import{
   slice01, slice02, slice03, id, idade,
 } from '../localStorage/messageBody.json';
@@ -12,7 +11,6 @@ const appInfo = require('../appInfo.json')
 
 //Component Init
 function BodyDisplay(props) {
-  const [dogImage, setDogImage] = useState({})
   const [gatilho, setGatilho] = useState(0)
   const [dogData, setDogData] = useState([])
   const [info, setInfo] = useState({
